@@ -1,4 +1,5 @@
 #1 What is the time complexity of the following function?
+# A. O(1)   B. O(n)  C. O(Log n)  D. O(n^2)
 
 def mystery(items):
     for i in range(len(items)):
