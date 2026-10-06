@@ -1,5 +1,5 @@
 #1 What is the time complexity of the following function?
-# A. O(1)   B. O(n)  C. O(Log n)  D. O(n^2)
+# A. O(1)   B. O(n)  C. O(Log n)  D. O(n²)
 
 def mystery(items):
     for i in range(len(items)):
@@ -14,3 +14,5 @@ def mystery(items):
 #4 Which grows faster as n increases: O(n log n) or O(n²)?
 
 #5 Short answer: Describe a real-world scenario where early-exit search meaningfully saves time compared to always scanning the full list.
+
+#6 Extra Credit: Explain the how a binary search algorithm works
