@@ -34,7 +34,7 @@ class UndoRedoSystem:
     def undo(self):
         if self.history.is_empty():
             return None
-        action = self.history.push()
+        action = self.history.pop()
         self.redo_stack.push(action)
         return action
 
