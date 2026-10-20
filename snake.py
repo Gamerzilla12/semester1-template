@@ -28,6 +28,13 @@ class SnakeBody:
             current = current.next
         print(" -> ".join(segments))
 
+
+    def delete(self, value):
+        # TODO: handle two cases --
+        # 1. the value is at self.head
+        # the value is somewhere further down the chain 
+        pass
+
 snek = SnakeBody()
 snek.grow("segment1")
 snek.grow("segment2")
