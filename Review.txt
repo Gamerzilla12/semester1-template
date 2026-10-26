@@ -1,0 +1,75 @@
+Problem 1 — Balanced parentheses checker (a classic stack application)
+
+Python:
+
+def is_balanced(expression):
+    stack = []
+    pairs = {')': '(', ']': '[', '}': '{'}
+    for char in expression:
+        if char in "([{":
+            stack.append(char)
+        elif char in ")]}":
+            if not stack or stack.pop() != pairs[char]:
+                return False
+    return len(stack) == 0
+
+print(is_balanced("(a[b]{c})"))  # True
+print(is_balanced("(a[b)]"))     # False
+Clojure:
+
+(defn balanced? [expression]
+  (let [pairs {\) \( \] \[ \} \{}]
+    (loop [chars (seq expression) stack '()]
+      (cond
+        (empty? chars) (empty? stack)
+        (contains? #{\( \[ \{} (first chars))
+        (recur (rest chars) (cons (first chars) stack))
+        (contains? pairs (first chars))
+        (if (and (seq stack) (= (first stack) (get pairs (first chars))))
+          (recur (rest chars) (rest stack))
+          false)
+        :else (recur (rest chars) stack)))))
+
+(balanced? "(a[b]{c})")  ;=> true
+(balanced? "(a[b)]")     ;=> false
+Problem 2 — Reverse a singly linked list (Python)
+
+class Node:
+    def __init__(self, value, next_node=None):
+        self.value = value
+        self.next = next_node
+
+def reverse_list(head):
+    previous = None
+    current = head
+    while current is not None:
+        next_node = current.next
+        current.next = previous
+        previous = current
+        current = next_node
+    return previous  # new head
+
+# Build a -> b -> c, then reverse it
+c = Node("c")
+b = Node("b", c)
+a = Node("a", b)
+
+new_head = reverse_list(a)
+current = new_head
+while current:
+    print(current.value, end=" -> ")
+    current = current.next
+print("None")  # c -> b -> a -> None
+Problem 3 — Reverse a Clojure list
+
+;; Trick question! Clojure lists are already easy to reverse:
+(reverse '("a" "b" "c"))  ;=> ("c" "b" "a")
+
+;; But write it "by hand" once, to see the same idea as Problem 2:
+(defn my-reverse [lst]
+  (loop [remaining lst result '()]
+    (if (empty? remaining)
+      result
+      (recur (rest remaining) (cons (first remaining) result)))))
+
+(my-reverse '("a" "b" "c"))  ;=> ("c" "b" "a")
