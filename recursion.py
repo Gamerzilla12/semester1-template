@@ -1,12 +1,12 @@
 
 
 def countdown(n):
-    if n <= 0:
+    if n <= 0: #base case
         print("Liftoff!")
         return
     print(n)
-    countdown(n -1)
-
+    countdown(n -1) #recursive case
+        #waits until countdown(n-1) finishes
 
 
 countdown(5)
@@ -25,9 +25,14 @@ countdown(5)
 
 def sum_list(items):
     if not items:
-        return 0
-    return items[0] + sum_list(items[1:])
+        return 0 #base case
+    return items[0] + sum_list(items[1:]) #recursive case
     #items[1:] ->   [StartingIndex:EndingIndex]
 
 
 print(sum_list([1, 2, 3, 4])) #10
+
+sum_list([1, 2, 3, 4])
+    #1 + 2 + 3 + 4 + 0
+
+print(sum_list([]))
