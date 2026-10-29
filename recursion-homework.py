@@ -7,4 +7,4 @@ def recur_print(lst):
     pass
 
 
-recur_print("Larry", "Moe", "Curly")
+recur_print(["Larry", "Moe", "Curly"])
