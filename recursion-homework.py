@@ -8,3 +8,11 @@ def recur_print(lst):
 
 
 recur_print(["Larry", "Moe", "Curly"])
+
+
+# add a stack trace to sum_list
+def sum_list(items):
+    if not items:
+        return 0 #base case
+    return items[0] + sum_list(items[1:]) #recursive case
+    #items[1:] ->   [StartingIndex:EndingIndex]
