@@ -1,5 +1,6 @@
+
 (defn sum-list-tail [items]
-  (loop
-   
-   (recur ))
-  )
+  (loop []
+    (if ()
+      ()
+      (recur ))))
