@@ -15,4 +15,3 @@ def bubble_sort(scores): # time complexity O(n^2)
 high_scores = [340, 820, 150, 999, 430]
 print(bubble_sort(high_scores))
 print(high_scores)
-
