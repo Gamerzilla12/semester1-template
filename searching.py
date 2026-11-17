@@ -1,4 +1,5 @@
 import random
+import time
 
 def linear_search(items, target):
     for i, item in enumerate(items):
@@ -12,15 +13,22 @@ def binary_search(sorted_items, target):
         mid = (low + high) // 2
         if sorted_items[mid] == target:
             return mid
-        elif sorted_items[mid] > target:
+        elif sorted_items[mid] < target:
             low = mid + 1
         else:
             high = mid - 1
     return -1
 
-leaderboard = [500, 480, 450, 420, 390, 350, 300, 275, 200, 150]  # sorted descending
-print(leaderboard)
-print(binary_search(leaderboard, 420))
-random.shuffle(leaderboard)
-print(leaderboard)
-print(linear_search(leaderboard, 420))
+
+lst = list(range(10_000_000))
+random.shuffle(lst)
+
+print("beginning run")
+begin = time.perf_counter()
+print(linear_search(lst, 8_800_000))
+print(f"Took {time.perf_counter() - begin:.3f}s")
+
+begin = time.perf_counter()
+lst.sort()
+print(binary_search(lst, 8_800_000))
+print(f"Took {time.perf_counter() - begin:.3f}s")
