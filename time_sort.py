@@ -45,4 +45,19 @@ def bubble_sort(scores): # time complexity O(n^2)
 
 for n in [200, 400, 800, 1600]:
     data = [random.randint(0, 10000) for _ in range(n)]
-    
+    bubble_time = time_sort(bubble_sort, data)
+    selection_time = time_sort(selection_sort, data)
+    insert_time = time_sort(insert_sort, data)
+
+    print(f'n={n} bubble={bubble_time:.5f}s selection={selection_time:.5f}s insert={insert_time:.5f}s')
+
+
+already_sorted = sorted(range(1000), reverse=True)   # descending: our sort order
+random_data = [random.randint(0, 10000) for _ in range(1000)]
+
+print(f"Insertion sort, already-sorted input: {time_sort(insert_sort, already_sorted):.5f}s")
+print(f"Insertion sort, random input: {time_sort(insert_sort, random_data):.5f}s")
+print(f"Bubble sort, already-sorted input: {time_sort(bubble_sort, already_sorted):.5f}s")
+print(f"Bubble sort, random input: {time_sort(bubble_sort, random_data):.5f}s")
+print(f"Selection sort, already-sorted input: {time_sort(selection_sort, already_sorted):.5f}s")
+print(f"Selection sort, random input: {time_sort(selection_sort, random_data):.5f}s")
