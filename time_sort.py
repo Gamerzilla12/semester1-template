@@ -1,4 +1,5 @@
 import time
+import random
 
 def time_sort(sort_fn, data):
     start = time.perf_counter()
@@ -40,3 +41,8 @@ def bubble_sort(scores): # time complexity O(n^2)
         if not swapped:
             break # the list is sorted
     return scores
+
+
+for n in [200, 400, 800, 1600]:
+    data = [random.randint(0, 10000) for _ in range(n)]
+    
